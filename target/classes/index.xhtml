@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head>
+		<link rel="stylesheet" href="res/bootstrap/css/bootstrap.css" type="text/css" media="all"/>
+		<link rel="stylesheet" href="res/bootstrap/css/bootstrap-theme.css" type="text/css" media="all"/>
+		Another Hello World
+		<f:facet name="first">
+			<meta charset="utf-8"/>
+	    	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	    	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+    	</f:facet>
+    	<f:facet name="middle">
+            <h:outputStylesheet name="res/bootstrap/css/bootstrap.css" />
+            <h:outputStylesheet name="res/css/dashboard.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+          	<h:outputScript name="bootstrap/js/bootstrap.js" />
+        </f:facet>
+	</h:head>
+	<h:body>
+		<p:inputText value="#{session2.userName}" pt:placeholder="Watermark here"/>
+		<p:accordionPanel>
+			<p:tab title="First Tab Title">
+				<h:outputText value= "Lorem"/>
+				...More content for first tab
+			</p:tab>
+			<p:tab title="Second Tab Title">
+				<h:outputText value="Ipsum" />
+			</p:tab>
+			//any number of tabs
+		</p:accordionPanel>
+		<p:panel id="pnl" header="My Panel">
+			<p:commandButton id="saveBtn" value="Save"></p:commandButton>
+		</p:panel>
+		<p:blockUI block="pnl" trigger="saveBtn" >
+			Loading
+			<p:graphicImage value="/images/ajax-loader.gif"/>
+		</p:blockUI>
+		<p:calendar value="#{dateBean.date}" mode="popup"/>
+		
+		<h1>Hello, world!</h1>
+		
+		<ui:include src="pages/header.xhtml"/>
+		
+		<h:commandButton class="btn btn-success btn-sm" value="Save"/>
+	</h:body>
+</html>
